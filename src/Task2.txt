@@ -1,0 +1,97 @@
+Task 1
+Consider the following graph with vertices and their adjacency lists. In what order will the nodes be visited using a
+Depth First Search considering the source node is A? Provide the detailed trace of the depth-first search (Refer to the
+book by Sedgewick and Wayne, Algorithms 4th edition, page 537).
+A: C B D
+B: A C E G
+C: A B D
+D: C A
+E: G F B
+F: G E
+G: F B
+Task 2
+In what order will the nodes of the graph above be visited using a Breadth First Search considering the source node is
+A? Provide the detailed trace of the breadth-first search using. (Refer to the book by Sedgewick and Wayne, Algorithms
+4th edition, page 539).
+
+Answer: ACBDEGF
+
+Detailed trace.
+queue   marked[]    edgeTo[]    adj[]
+A       A-T         A           A-CBD
+        B           B           B-ACEG
+        C           C           C-ABD
+        D           D           D-CA
+        E           E           E-GFB
+        F           F           F-GE
+        G           G           G-FB
+
+Removes A from the queue and put its adjacent vertices C, B and D on the queue.
+
+queue   marked[]    edgeTo[]    adj[]
+C       A-T         A           A-CBD-checked
+B       B-T         B-A         B-ACEG
+D       C-T         C-A         C-ABD
+        D-T         D-A         D-CA
+        E           E           E-GFB
+        F           F           F-GE
+        G           G           G-FB
+
+Removes C from the queue and checks its adjacent vertices A, B and D, which are marked.
+
+queue   marked[]    edgeTo[]    adj[]
+B       A-T         A           A-CBD-checked
+D       B-T         B-A         B-ACEG
+        C-T         C-A         C-ABD-checked
+        D-T         D-A         D-CA
+        E           E           E-GFB
+        F           F           F-GE
+        G           G           G-FB
+
+Removes B from the queue and checks its adjacent vertices A and C, which are marked.
+Then put its adjacent vertices E and G on the queue.
+
+queue   marked[]    edgeTo[]    adj[]
+D       A-T         A           A-CBD-checked
+E       B-T         B-A         B-ACEG-checked
+G       C-T         C-A         C-ABD-checked
+        D-T         D-A         D-CA
+        E-T         E-B         E-GFB
+        F           F           F-GE
+        G-T         G-B         G-FB
+
+Removes D from the queue and checks its adjacent vertices A and C, which are marked.
+
+queue   marked[]    edgeTo[]    adj[]
+E       A-T         A           A-CBD-checked
+G       B-T         B-A         B-ACEG-checked
+        C-T         C-A         C-ABD-checked
+        D-T         D-A         D-CA-checked
+        E-T         E-B         E-GFB
+        F           F           F-GE
+        G-T         G-B         G-FB
+
+Removes E from the queue and checks its adjacent vertices G and B, which are marked.
+Then put its adjacent vertex F on the queue.
+
+queue   marked[]    edgeTo[]    adj[]
+G       A-T         A           A-CBD-checked
+F       B-T         B-A         B-ACEG-checked
+        C-T         C-A         C-ABD-checked
+        D-T         D-A         D-CA-checked
+        E-T         E-B         E-GFB-checked
+        F-T         F-E         F-GE
+        G-T         G-B         G-FB
+
+Removes G from the queue and checks its adjacent vertices F and B, which are marked.
+
+queue   marked[]    edgeTo[]    adj[]
+F       A-T         A           A-CBD-checked
+        B-T         B-A         B-ACEG-checked
+        C-T         C-A         C-ABD-checked
+        D-T         D-A         D-CA-checked
+        E-T         E-B         E-GFB-checked
+        F-T         F-E         F-GE
+        G-T         G-B         G-FB-checked
+
+Removes F from the queue and checks its adjacent vertices G and E, which are marked.
