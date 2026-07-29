@@ -14,7 +14,7 @@ In what order will the nodes of the graph above be visited using a Breadth First
 A? Provide the detailed trace of the breadth-first search using. (Refer to the book by Sedgewick and Wayne, Algorithms
 4th edition, page 539).
 
-Answer: ACBDEGF
+Answer: A-C-B-D-E-G-F
 
 Detailed trace.
 queue   marked[]    edgeTo[]    adj[]
