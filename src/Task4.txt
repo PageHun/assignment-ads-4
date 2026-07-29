@@ -1,0 +1,23 @@
+Task 4
+Consider the Scottish road network shown below. Use the shortest-path algorithm to determine the shortest path from
+Edinburgh to Dundee.
+
+Answer: Edinburgh-Stirling-Penth-Dundee, total distance: 50+40+60=150
+
+Explanation.
+It's Dijkstra's algorithm. It only works with non-negative weights.
+Edinburgh has 3 adjacent vertices Glasgow, Stirling and Perth. From
+Edinburgh to Glasgow we pass 70 km. From Edinburgh to Stirling we pass
+50 km. From Edinburgh to Perth we pass 100 km. In Dijkstra's algorithm
+we always choose the vertex has the smallest edge. In this case, we
+would go to Stirling. Now, Stirling has 3 adjacent vertices Glasgow,
+Perth and Edinburgh. From Stirling to Glasgow we pass 50km, so if we
+get to Stirling trough Glasgow from the start, it would take 120km.
+It means, we still get to Stirling from Edinburgh directly. To get
+to Perth it takes 40 km, therefore, we would choose road to Perth.
+Perth has also 3 adjacent vertices Stirling, Edinburgh and Dundee.
+From Perth to Edinburgh we pass 100km. We got to Perth by passing
+only 90km, that's why we are still getting to Perth trough Stirling
+from the start. From Perth to Dundee it takes 60km. In conclusion,
+we get to Dundee by passsing trough Stirling and Perth, and the
+smallest amout of distance is 150km.
