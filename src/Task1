@@ -1,0 +1,42 @@
+Task 1
+Consider the following graph with vertices and their adjacency lists. In what order will the nodes be visited using a
+Depth First Search considering the source node is A? Provide the detailed trace of the depth-first search (Refer to the
+book by Sedgewick and Wayne, Algorithms 4th edition, page 537).
+A: C B D
+B: A C E G
+C: A B D
+D: C A
+E: G F B
+F: G E
+G: F B
+
+Answer: A-C-B-E-G-F-D
+
+Detailed trace.
+dfs(A)
+  dfs(C)
+    check A
+    dfs(B)
+      check A
+      check C
+      dfs(E)
+        dfs(G)
+          dfs(F)
+            check G
+            check E
+          F done
+          check B
+        G done
+        check F
+        check B
+      E done
+      check G
+    B done
+    dfs(D)
+      check C
+      check A
+    D done
+  C done
+  check B
+  check D
+A done
